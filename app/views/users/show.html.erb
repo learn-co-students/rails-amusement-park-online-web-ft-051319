@@ -1,0 +1,18 @@
+<h1>Name <%= @user.name %></h1>
+<h2>Mood <%= @user.mood %></h2>
+<h2>Tickets: <%= @user.tickets %></h2>
+<h2>Height <%= @user.height %></h2>
+
+<% if @user.admin %>
+    <p>ADMIN</p>
+<% end %>
+
+<% if !flash.empty? %>
+    <% flash.each do |message| %>
+        <%= message%>
+    <% end %>
+<% end %>
+
+<%= link_to "Log Out", '/logout'%>
+
+<%= link_to "See attractions", attractions_path %>
