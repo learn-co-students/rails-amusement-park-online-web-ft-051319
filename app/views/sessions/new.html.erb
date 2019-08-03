@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<h1> Log In </h1><br/>
+<%= form_for(:user, url: signin_path) do |f| %>
+    <%= f.label :name %> 
+    <%= f.select :name, options_for_select(@users.collect{|u| [u.name, u.id]}) %>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br/>
+    <%= f.submit "Sign In" %> 
+
+<%end%>
+
+</html>
