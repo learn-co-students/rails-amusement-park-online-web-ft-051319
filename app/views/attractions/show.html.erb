@@ -1,0 +1,20 @@
+
+<p>Name: <%=@attraction.name%></p>
+<p>Total Number of Users: <%=@attraction.users.count%></p>
+<p>Ticket Requirement: <%=@attraction.tickets%></p>
+<p>Height Requirement: <%=@attraction.min_height%></p>
+<p>Nausea Rating: <%=@attraction.nausea_rating%></p>
+<p>Happiness Rating: <%=@attraction.happiness_rating%></p>
+
+
+<%#<%= button_to "Go on this ride", user_path(session[:user_id]), method: :post %>
+<% if !admin? %>
+  <%= form_tag user_path(session[:user_id]), method: :post do %>
+    <%= hidden_field_tag :attraction_id,@attraction.id%>
+    <%= submit_tag 'Go on this ride' %>
+  <% end %>
+<%end%>
+
+<% if admin? %>
+  <%= render '/layouts/admin/edit' %>
+<%end%>

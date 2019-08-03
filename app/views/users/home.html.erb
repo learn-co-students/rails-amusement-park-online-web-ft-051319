@@ -1,0 +1,8 @@
+
+<% if session[:user_id] %>
+  <%= @user.name %><br>
+  <%= @user.tickets %><br>
+<% else %>
+  <%= link_to "Sign Up", new_user_path %>
+  <%= link_to "Login", signin_path %>
+<%end%>
