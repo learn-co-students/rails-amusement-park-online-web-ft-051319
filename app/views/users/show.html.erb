@@ -10,6 +10,11 @@
 
 <br><br>
 
+<%= flash[:error] if flash[:error] %>
+<%= flash[:thank_you] if flash[:thank_you] %>
+
+<br><br>
+
 <%= link_to "See attractions", attractions_path %>
 
 <br><br>

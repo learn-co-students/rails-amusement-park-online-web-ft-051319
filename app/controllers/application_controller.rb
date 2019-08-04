@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def is_admin?
+    redirect_to user_path(current_user) unless current_user.admin
+  end
 end
