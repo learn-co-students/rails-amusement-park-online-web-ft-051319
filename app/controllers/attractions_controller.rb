@@ -6,9 +6,14 @@ class AttractionsController < ApplicationController
     end
 
     def create
-        attraction = Attraction.find_or_create_by(name: attraction_params[:name])
-        
-        redirect_to attraction_path(attraction)
+        attraction = Attraction.new(attraction_params)
+
+        if attraction.save!
+            redirect_to attraction_path(attraction)
+        else
+            flash[:error] = "Attraction did not save."
+            render new_attraction_path
+        end
     end
 
     def edit

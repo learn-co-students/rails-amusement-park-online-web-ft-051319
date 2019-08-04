@@ -18,6 +18,10 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <% if current_user %>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/><%= current_user.name %>'s Profile</a>
+          <a class="navbar-brand" rel="nofollow" data-method="delete" href="<%= logout_path %>"/>Log Out</a>
+        <% end %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

@@ -1,3 +1,5 @@
 <h1>Create Attraction</h1>
 
+<%= flash[:error] if flash[:error] %>
+
 <%= render partial: "form", locals: {attraction: @attraction} %>

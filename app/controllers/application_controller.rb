@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :authentication_required, :log_in, :current_user
+  helper_method :authentication_required, :log_in, :current_user, :reset_session, :is_admin?
 
   def authentication_required
     redirect_to root_path unless session.include? :user_id
