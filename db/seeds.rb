@@ -54,6 +54,7 @@ def make_users
     end
     new_user.save
   end
+
 end
 
 def make_admin
@@ -63,6 +64,7 @@ def make_admin
 end
 
 def make_attractions_and_rides
+  byebug
   DATA[:attractions].each do |attraction|
     new_attraction = Attraction.new
     attraction.each_with_index do |attribute, i|

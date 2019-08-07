@@ -1,0 +1,67 @@
+<%= f.label :password_confirmation %><br />
+<%= f.password_field :password_confirmation %><br />
+
+
+--
+
+<form action='/logout' method='post'>
+  Logout?
+  <input type="submit" name="logout" value="Logout">
+  </form>
+---
+
+
+
+
+<input name=name>
+---
+
+<%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
+
+
+<select("user", "user_id", User.all)>
+<input name=password type="password">
+<input type=submit value='login'>
+<% end %>
+
+--
+
+
+<%= form_for @user , url: sessions_path} do |f| %>
+  <%=f.collection_select :user_id, User.all, :id, :name %>
+  <%= f.password_field :password %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
+
+
+<select> ("user", "user_id", User.all)>
+<input name=password type="password">
+<input type=submit value='login'>
+<% end %>
+
+
+--- form_for pulldown but wrong password field frakking Name
+
+<%= form_for( :user, url: signin_path) do |f| %>
+
+     <%= f.label :name %>
+     <%#= f.text_field :name %>
+     <%= f.collection_select( :name, User.all, :name, :name) %>
+
+     <%= f.label :password %>
+     <%= f.password_field (:id="password") :password%>
+
+     <%= f.submit "Log in" %>
+   <% end %>
+--
+
+<%=form_tag({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  Log Out<input type=submit value='Log Out'>
+  <%end %>
+
+  --
+  <%= form_tag user_path(@user) do %>
+    <div><%= submit_tag "Go on thie ride" %></div>
+  <% end -%>
