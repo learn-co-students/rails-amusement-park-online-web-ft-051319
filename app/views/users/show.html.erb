@@ -1,0 +1,15 @@
+<ul>
+<li> Name: <%=@user.name%><br /></li>
+<li>Height: <%=@user.height%><br /></li>
+<li>Mood: <%=@user.mood%><br /></li>
+<li>Tickets: <%=@user.tickets%><br /></li>
+<li>Admin: <% if @user.admin == true %>
+            <%="ADMIN"%>
+            <%end%>
+<br /> </li>
+</ul>
+<%#byebug%>
+<%=@message%>
+
+<%= link_to( 'See attractions', attractions_path)%>
+<%= link_to('Log Out', logout_path, method: :post) %>

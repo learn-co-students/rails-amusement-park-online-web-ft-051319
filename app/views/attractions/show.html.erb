@@ -1,0 +1,15 @@
+<h2>Attraction: <%=@attraction.name%></h2>
+<li>Nausea Rating: <%=@attraction.nausea_rating%></li>
+<li>Happiness Rating:<%=@attraction.happiness_rating%>
+<li>Tickets: <%=@attraction.tickets%></li>
+<li>Min. Height:<%=@attraction.min_height%></li>
+
+<% if @admin %>
+  <%=link_to "Edit Attraction", edit_attraction_path(@attraction) %>
+  <%else %>
+<%= form_tag user_path(@user), :method=>:patch do %>
+  <div><%= hidden_field_tag "attr_id", @attraction.id%>
+
+  <div><%= submit_tag "Go on this ride" %></div>
+  <% end %>
+<%end %>
